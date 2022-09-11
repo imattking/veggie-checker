@@ -1,0 +1,146 @@
+:root {
+    --color-primary-400: rgba(45, 39, 211, 1.0);
+    --color-secondary-400: rgba(81, 63, 237, 1.0);
+    --color-neutral-100: rgba(248, 248, 248, 1.0);
+    --color-neutral-900: rgba(17, 17, 17, 1.0);
+    --color-accent-400: rgba(250, 222, 74, 1.0);
+    --color-bg-100: rgba(255, 255, 255, 1.0);
+    --color-bg-900: rgba(17, 17, 17, 1.0);
+
+    --box-shadow-light:  0 0 4px 1px rgba(17, 17, 17, 0.15);
+    --box-shadow-med: 0 0 3px 1px rgba(17, 17, 17, 0.25);
+}
+
+/***************** Box sizing rules *****************/
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/***************** Remove default margin *****************/
+* {
+    margin: 0;
+    padding: 0;
+    font: inherit;
+}
+
+/***************** remove list styles on ul, ol elements *****************/
+
+ul, /* [role='list'] */
+ol /* [role='list']  */{
+    list-style-type: none;
+}
+
+/***************** Set core root defaults *****************/
+
+html {
+    font-size: 62.5%;
+    font-family: 'Open Sans', san-serif;
+    color: --color-neutral-900;
+}
+
+/***************** Body Styles *****************/
+body {
+    background: var(--color-bg-100);
+
+}
+
+section {
+    width: 100%;
+    padding: 3rem 1rem;
+}
+
+.container {
+    max-width: 75rem;
+    margin: 2rem auto;
+    /* margin-inline: auto; */
+    /* margin-block: 2rem; */
+}
+.card {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: 0.25rem;
+    background: var(--color-neutral-100);
+    border-radius: 0.5rem;
+    box-shadow: var(--box-shadow-light);
+    padding: 2rem;
+}
+
+img {
+    max-height: 30rem;
+    width: auto;
+    margin-inline: auto;
+    margin-bottom: 1.5rem;
+    border-radius: 0.3rem;
+    box-shadow: var(--box-shadow-med);
+}
+
+h1 {
+    font-size: 4.5rem;
+    font-weight: 700;
+    text-align: center;
+}
+
+h2 {
+    font-size: 2.25rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+input {
+    height: 3rem;
+    font-size: 1.6rem;
+    padding-inline: 1rem;
+    color: var(--color-neutral-900);
+}
+
+.button {
+    font-size: 2rem;
+    width: 100%;
+    padding: 0.5rem;
+    margin-top: 0.75rem;
+    border-radius: 0.5rem;
+    box-shadow: 1px 1px 0 0 rgba(17, 17, 17, 0.75);
+    background: var(--color-primary-400);
+    color: var(--color-neutral-100);
+    text-align: center;
+    text-transform: capitalize;
+}
+.button:active {
+    /* background: var(--color-secondary-400); */
+    box-shadow: none;
+}
+/***************** Table Styles *****************/
+table {
+    font-size: 1.3rem;
+    line-height: 1.6;
+    border-radius: 0.3rem;
+    background: var(--color-bg-100);
+    text-align: center;
+}
+th {
+    font-size: 2rem;
+    font-weight: 500;
+}
+tr, th, td {
+    border: 0.5px solid var(--color-neutral-900);
+}
+td {
+    padding: 0.4rem 1rem;
+    width: 50%;
+}
+tr:nth-child(2n + 1),
+th:nth-child(2n + 1),
+td:nth-child(2n + 1) {
+    border-top-left-radius: 0.3rem;
+    border-bottom-left-radius: 0.3rem;
+}
+tr:nth-child(2n),
+th:nth-child(2n),
+td:nth-child(2n) {
+    border-top-right-radius: 0.3rem;
+    border-bottom-right-radius: 0.3rem;
+}
