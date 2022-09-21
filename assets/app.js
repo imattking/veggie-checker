@@ -1,6 +1,7 @@
 // Define HTML element variables
 /******************************* */
-const videoFrame = document.querySelector('#frame');
+const videoContainer = document.querySelector('#vid-wrapper')
+const videoFrame = document.querySelector('#vid-frame');
 const scan = document.querySelector('#start');
 const scanResult = document.querySelector('#result');
 const manualEntry = document.querySelector('#enter');
@@ -10,6 +11,7 @@ const manualEntry = document.querySelector('#enter');
 /************************************** */
 scan.addEventListener('click', () => {
     // toggle visibily to bring video preview into view
+    // videoContainer.classList.toggle('hidden');
     videoFrame.classList.toggle('hidden');
 
     // initialize async/await
@@ -17,7 +19,7 @@ scan.addEventListener('click', () => {
         inputStream : {
           name : "Live",
           type : "LiveStream",
-          target: document.querySelector('#frame')  // highlight where in DOM to load preview
+          target: document.querySelector('#vid-frame')  // highlight where in DOM to load preview
         },
         decoder : {
           readers : ["upc_reader"] // specify which type of barcode reader
@@ -38,6 +40,7 @@ scan.addEventListener('click', () => {
             if(result.codeResult) {
                 console.log("result", result.codeResult.code); // log to console as test
                 //scanResult.innerText = `Result: ${result.codeResult.code}`; // place in DOM as preview
+                getFetch(result.codeResult.code);
                 Quagga.stop();
                 videoFrame.classList.add('hidden'); // hide preview on completion
             } else {
@@ -48,28 +51,26 @@ scan.addEventListener('click', () => {
       })
     });
 
-
+//manualEntry.addEventListener('click', getFetch(document.querySelector('#barcode').value));
 
 // Fetch function for querying Food API to get results
 /***************************************************** */
-function getFetch() {
-    const typeUPC = document.querySelector('#barcode').value;
-
-    const userInput = typeUPC || scanUPC;
-
-    if (userInput.length !== 12) {
+function getFetch(input) {
+    // const typeUPC = document.querySelector('#barcode').value;
+    console.log('API lookup has been called');
+    if (input.length !== 12) {
         alert(`Please ensure that barcode is 12 characters in length.`)
         return;
     }
 
-    const url = `https://world.openfoodfacts.org/api/v0/product/${userInput}.json`;
+    const url = `https://world.openfoodfacts.org/api/v0/product/${input}.json`;
     
     fetch(url)
         .then( res => res.json() ) // parse resopnse as .json
         .then( data => {
             // verify that producg is found
             if (!data.status) {
-                alert(`Product ${userInput} not found. Please try another.`);
+                alert(`Product ${input} not found. Please try another.`);
             } else {
                 const item = new FoodInfo(data.product);
                 item.showInfo();
