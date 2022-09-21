@@ -145,6 +145,17 @@ td:nth-child(2n) {
     border-bottom-right-radius: 0.3rem;
 }
 
+#frame {
+    max-width: 30rem;
+    max-height: 22.5rem;
+    overflow: hidden;
+}
+#video {
+    border: solid 1px black;
+    max-width: 100%;
+    overflow: hidden;
+}
+
 .hidden {
     display: none;
 }
