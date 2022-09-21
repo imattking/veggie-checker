@@ -1,7 +1,12 @@
-//document.querySelector('button').addEventListener('click', getFetch);
 
+document.querySelector('#enter').addEventListener('click', getFetch);
+
+// Fetch function for querying Food API to get results
+/***************************************************** */
 function getFetch() {
-    const userInput = document.querySelector('#barcode').value;
+    const typeUPC = document.querySelector('#barcode').value;
+
+    const userInput = typeUPC || scanUPC;
 
     if (userInput.length !== 12) {
         alert(`Please ensure that barcode is 12 characters in length.`)
@@ -27,6 +32,8 @@ function getFetch() {
         })
 };
 
+// Build out results object and create table for responses
+/********************************************************* */
 class FoodInfo {
     constructor(productInfo) {
         this.name = productInfo.product_name;

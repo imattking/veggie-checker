@@ -78,7 +78,7 @@ img {
 }
 
 h1 {
-    font-size: 4.5rem;
+    font-size: 4rem;
     font-weight: 700;
     text-align: center;
 }
@@ -143,4 +143,8 @@ th:nth-child(2n),
 td:nth-child(2n) {
     border-top-right-radius: 0.3rem;
     border-bottom-right-radius: 0.3rem;
+}
+
+.hidden {
+    display: none;
 }
