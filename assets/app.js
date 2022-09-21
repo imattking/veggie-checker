@@ -1,5 +1,5 @@
 
-document.querySelector('#enter').addEventListener('click', getFetch());
+document.querySelector('#enter').addEventListener('click', getFetch);
 
 // Fetch function for querying Food API to get results
 /***************************************************** */
