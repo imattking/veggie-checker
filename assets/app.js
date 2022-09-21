@@ -1,17 +1,21 @@
 // Define HTML element variables
 /******************************* */
-const videoContainer = document.querySelector('#vid-wrapper')
+const videoWrapper = document.querySelector('#vid-wrapper')
 const videoFrame = document.querySelector('#vid-frame');
 const scan = document.querySelector('#start');
 const scanResult = document.querySelector('#result');
-const manualEntry = document.querySelector('#enter');
+const manualEntry = document.querySelector('#numLookup');
+const inputValue = document.querySelector('#barcode');
 
+// Set up function call for manual entry
+/*********************************************** */
+// manualEntry.addEventListener('click', getFetch());
 
 // Start scan to parse upc from barcode
 /************************************** */
 scan.addEventListener('click', () => {
     // toggle visibily to bring video preview into view
-    // videoContainer.classList.toggle('hidden');
+    videoWrapper.classList.toggle('hidden');
     videoFrame.classList.toggle('hidden');
 
     // initialize async/await
@@ -43,21 +47,22 @@ scan.addEventListener('click', () => {
                 getFetch(result.codeResult.code);
                 Quagga.stop();
                 videoFrame.classList.add('hidden'); // hide preview on completion
+                videoWrapper.classList.add('hidden'); // hide preview on completion
             } else {
                 document.querySelector('#result').innerText = "not detected"; // display error text
                 videoFrame.classList.add('hidden'); // hide preivew on error
+                videoWrapper.classList.add('hidden'); // hide preview on completion
             }
         });
       })
     });
 
-//manualEntry.addEventListener('click', getFetch(document.querySelector('#barcode').value));
 
 // Fetch function for querying Food API to get results
 /***************************************************** */
 function getFetch(input) {
-    // const typeUPC = document.querySelector('#barcode').value;
-    console.log('API lookup has been called');
+    
+    console.log(`API lookup has been called with ${input} value.`);
     if (input.length !== 12) {
         alert(`Please ensure that barcode is 12 characters in length.`)
         return;
