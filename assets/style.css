@@ -182,8 +182,11 @@ td:nth-child(2n) {
     #vid-frame {
         max-height: 25rem;
     }
-    .container.card {
+    .container {
         max-width: 100vw;
+    }
+    img {
+        max-width: 100%;
     }
 }
 /******* Set up color scheme switching preferences *******/
