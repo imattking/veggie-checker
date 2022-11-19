@@ -1,4 +1,12 @@
 :root {
+
+    /************ Dark/Light Mode settings **************/
+    /* color-scheme: dark light;  */
+    --color-dark-mode-100: rgba(100, 100, 100, 1.0);
+    --color-dark-mode-400: rgba(50, 50, 50, 1.0);
+    --color-dark-mode-900: rgba(25, 25, 25, 1.0);
+
+    /************************************************/
     --color-primary-400: rgba(45, 39, 211, 1.0);
     --color-secondary-400: rgba(81, 63, 237, 1.0);
     --color-neutral-100: rgba(248, 248, 248, 1.0);
@@ -8,7 +16,7 @@
     --color-bg-900: rgba(17, 17, 17, 1.0);
 
     --box-shadow-light:  0 0 4px 1px rgba(17, 17, 17, 0.15);
-    --box-shadow-med: 0 0 3px 1px rgba(17, 17, 17, 0.25);
+    --box-shadow-med: 0 0 3px 1px rgba(17, 17, 17, 0.25);   
 }
 
 /***************** Box sizing rules *****************/
@@ -173,5 +181,20 @@ td:nth-child(2n) {
 @media screen and (max-width: 390px) {
     #vid-frame {
         max-height: 25rem;
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    body {
+        background: var(--color-dark-mode-900);
+    }
+    .card {
+        background: var(--color-dark-mode-400);
+    }
+    table {
+        background: var(--color-dark-mode-100);
+    }
+    h1 {
+        color: var(--color-neutral-100);
     }
 }
