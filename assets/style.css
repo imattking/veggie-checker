@@ -182,8 +182,11 @@ td:nth-child(2n) {
     #vid-frame {
         max-height: 25rem;
     }
+    .container {
+        max-width: 100%;
+    }
 }
-
+/******* Set up color scheme switching preferences *******/
 @media (prefers-color-scheme: dark) {
     body {
         background: var(--color-dark-mode-900);
@@ -194,7 +197,10 @@ td:nth-child(2n) {
     table {
         background: var(--color-dark-mode-100);
     }
-    h1 {
+    h1, h2 {
+        color: var(--color-neutral-100);
+    }
+    input {
         color: var(--color-neutral-100);
     }
 }
